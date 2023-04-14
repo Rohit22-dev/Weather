@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Fresca&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,9 +9,10 @@ body {
   color: #cbe4de;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  font-family: "Fresca", sans-serif;
+  font-stretch: extra-expanded;
 }
 
 ::-webkit-scrollbar {
   display: none;
 }
-
