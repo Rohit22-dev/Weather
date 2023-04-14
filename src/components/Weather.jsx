@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../App";
 import { BsDropletFill, BsWind, BsSpeedometer } from "react-icons/bs";
-import axios from "axios";
 import sunrise from "../assets/sunrise.png";
 import sunset from "../assets/sunset.png";
 
@@ -12,18 +11,18 @@ const Weather = () => {
     <div className="grid grid-flow-row md:grid-cols-2 grid-col-1 h-screen p-8 gap-4">
       {/* Main weather  */}
       <div className="flex flex-col shadow-md shadow-dark p-8 my-auto bg-gradient-to-br from-[#0E8388] to-[#F5F3C1] h-full md:h-2/3 rounded-lg ">
-        <p className="text">{Data.location?.region}</p>
+        <p className="text">{Data?.location?.region}</p>
         <div className="flex flex-col lg:flex-row w-full flex-1 justify-evenly lg:justify-between items-center">
           <div className="flex flex-col">
-            <p className="text-7xl font-bold">{Data.current?.temp_c}°C</p>
+            <p className="text-7xl font-bold">{Data?.current?.temp_c}°C</p>
             <p className="ml-2 text-xl font-semibold">
-              {Data.current?.condition.text}
+              {Data?.current?.condition.text}
             </p>
           </div>
           <img
             src={`https://cdn.weatherapi.com/weather/128x128/${
-              Data.current?.is_day === 1 ? "day" : "night"
-            }/${Data.current?.condition.icon.slice(-7)}`}
+              Data?.current?.is_day === 1 ? "day" : "night"
+            }/${Data?.current?.condition.icon.slice(-7)}`}
             className="w-24"
           />
         </div>
@@ -31,15 +30,15 @@ const Weather = () => {
         <div className="flex gap-1.5 w-full mt-auto">
           <div className="grid place-items-center grow bg-gradient-to-br from-dark_teal to-dark_gray py-4 rounded-lg  gap-2">
             <BsDropletFill size={20} color="#CBE4DE" />
-            <p>Humidity {Data.current?.humidity}</p>
+            <p>Humidity {Data?.current?.humidity}</p>
           </div>
           <div className="grid place-items-center grow bg-gradient-to-br from-dark_teal to-dark_gray py-4 rounded-lg gap-2">
             <BsSpeedometer size={20} color="#CBE4DE" />
-            Pressure {Data.current?.pressure_mb}
+            Pressure {Data?.current?.pressure_mb}
           </div>
           <div className="grid place-items-center flex-col grow bg-gradient-to-br from-dark_teal to-dark_gray py-4 rounded-lg gap-2">
             <BsWind size={20} color="#CBE4DE" />
-            Wind speed {Data.current?.wind_kph}
+            Wind speed {Data?.current?.wind_kph}
           </div>
         </div>
       </div>
@@ -83,8 +82,8 @@ const Weather = () => {
                   <p className="text font-semibold">{item.toUpperCase()}:</p>
                   <p className="text">
                     {item === "uv"
-                      ? Data.current?.uv
-                      : Data.current?.air_quality.o3.toFixed(2)}
+                      ? Data?.current?.uv
+                      : Data?.current?.air_quality.o3.toFixed(2)}
                   </p>
                 </div>
               );

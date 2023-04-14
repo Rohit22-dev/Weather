@@ -16,11 +16,11 @@ const Navbar = () => {
     <div className="flex sm:px-20 px-8 justify-between items-center">
       <div className="flex flex-col">
         <h1 className="text-3xl lg:text-5xl font-bold text-light_blue">
-          {Data.location?.name}
+          {Data?.location?.name}
         </h1>
         <div className="flex items-center text-lg lg:text-2xl font-semibold gap-2 text-dark_teal">
           <BiMap />
-          {Data.location?.country}
+          {Data?.location?.country}
         </div>
       </div>
       <div className="bg-light_blue flex items-center rounded-lg border-2 border-dark_teal px-2">
