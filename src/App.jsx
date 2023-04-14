@@ -11,19 +11,16 @@ const App = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch(
-        `http://api.weatherapi.com/v1/current.json?key=6a51b3f734174a7e99495856231004&q=${city}&aqi=yes`
+      axios.get(
+        `https://api.weatherapi.com/v1/current.json?key=6a51b3f734174a7e99495856231004&q=${city}&aqi=yes`
       ),
-      fetch(
-        `http://api.weatherapi.com/v1/forecast.json?key=6a51b3f734174a7e99495856231004&q=${city}&days=10&aqi=no&alerts=yes`
+      axios.get(
+        `https://api.weatherapi.com/v1/forecast.json?key=6a51b3f734174a7e99495856231004&q=${city}&days=10&aqi=no&alerts=yes`
       ),
     ])
       .then((responses) => {
-        responses[0].json().then((val) => setData(val));
-        // setData(responses[0].data);
-        // setData(responses[0].data)
-        responses[1].json().then((val) => setForecast(val.forecast));
-        // setForecast(responses[1].data.forecast);
+        setData(responses[0].data);
+        setForecast(responses[1].data.forecast);
       })
       .catch((err) => {
         console.log(err);
